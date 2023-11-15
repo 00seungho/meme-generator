@@ -33,6 +33,7 @@ def setup():
 
 quotes, imgs = setup()
 
+    
 
 @app.route('/')
 def meme_rand():

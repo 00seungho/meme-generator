@@ -1,0 +1,16 @@
+1.'QuoteEngine'라는 디렉토리 안에 'init.py' 파일을 포함한 파이썬 모듈을 생성하라는 요청입니다.
+파이썬에서는 패키지를 만들 때 각 디렉토리에 'init.py' 파일을 포함해야 합니다. 
+'init.py' 파일은 해당 디렉토리를 파이썬 패키지로 인식하게 합니다. 따라서 'QuoteEngine'이라는 디렉토리를 만들고, 그 안에 'init.py' 파일을 포함한 모듈을 생성해야 합니다.
+
+2.주어진 예시 인용구들은 다양한 파일 형식으로 제공됩니다. './_data/SimpleLines'와 './_data/DogQuotes' 디렉토리 안의 파일 형식을 살펴보세요.
+
+3."QuoteModel" 클래스는 몸체와 작가 정보를 캡슐화하는 간단한 형태의 클래스입니다.(여기서 말하는 몸체는 밈, 작가는 밈을 만든 사람을 뜻하는듯)
+
+4.추상 기본 클래스인 IngestorInterface를 구현하라는데, 이 클래스는 다음과 같은 클래스 메서드 시그니처를 가진 두 개의 메서드를 정의해야 합니다: 
+def can_ingest(cls, path) -> boolean 및 def parse(cls, path: str) -> List[QuoteModel].
+
+5."csv, docx, pdf, txt"와 같은 각 파일 유형에 대한 IngestorInterface를 실현하는 별도의 전략(strategy) 객체를 구현하세요. 
+이를 위해서는 IngestorInterface를 실제 구현하는 클래스가 필요합니다. 
+각 클래스는 can_ingest와 parse 메서드를 구현하여 특정 파일 형식을 처리할 수 있어야 합니다. 
+CSV 파일을 처리하는 CsvIngestor 클래스, 
+DOCX 파일을 처리하는 DocxIngestor 클래스 등을 구현할 수 있습니다.

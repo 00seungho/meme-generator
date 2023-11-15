@@ -3,7 +3,6 @@ import random
 
 # @TODO Import your Ingestor and MemeEngine classes
 
-
 def generate_meme(path=None, body=None, author=None):
     """ Generate a meme given an path and a quote """
     img = None
@@ -14,7 +13,6 @@ def generate_meme(path=None, body=None, author=None):
         imgs = []
         for root, dirs, files in os.walk(images):
             imgs = [os.path.join(root, name) for name in files]
-
         img = random.choice(imgs)
     else:
         img = path[0]
@@ -37,6 +35,7 @@ def generate_meme(path=None, body=None, author=None):
     meme = MemeEngine('./tmp')
     path = meme.make_meme(img, quote.body, quote.author)
     return path
+
 
 
 if __name__ == "__main__":
