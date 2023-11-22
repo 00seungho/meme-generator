@@ -1,17 +1,7 @@
-from abc import ABC, abstractmethod
 from typing import List
 import os
 import csv
-class IngestorInterface(ABC):
-    @classmethod
-    @abstractmethod
-    def can_ingest(cls, path: str) -> bool:
-        return True
 
-    @classmethod
-    @abstractmethod
-    def parse(cls, path: str) -> List[QuoteModel]:
-        return []
     
 class QuoteModel():
     def __init__(self, body, author):
