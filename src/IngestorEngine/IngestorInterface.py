@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from QuoteModel import Quote
 class IngestorInterface(ABC):
     @classmethod
     @abstractmethod
@@ -6,5 +7,5 @@ class IngestorInterface(ABC):
         return True
     @classmethod
     @abstractmethod
-    def parse(cls, path: str) -> List[QuoteModel]:
+    def parse(cls, path: str) -> list[Quote]:
         return []
