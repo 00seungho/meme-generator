@@ -41,7 +41,6 @@ class DocxIngestor (Ingestor):
         try:
             doc = Document(path)
             for _, paragraph in enumerate(doc.paragraphs):
-                print(type(paragraph))
                 author = paragraph.text.split('-')[1].replace("\n","")
                 body = paragraph.text.split('-')[0]
                 Quotes.append(Quote(author,body))
@@ -63,10 +62,10 @@ class PdfIngestor (Ingestor):
             subprocess.run(f"pdftotext -layout {file_name_extension} temp.txt")
             with open("temp.txt", "r") as txt:
                 texts = txt.readlines()
-            for item in texts:
-                author = item.split('-')[1].replace("\n","")
-                body = item.split('-')[0]
-                Quotes.append(Quote(author,body))
+                for item in texts:
+                    author = item.split('-')[1].replace("\n","")
+                    body = item.split('-')[0]
+                    Quotes.append(Quote(author,body))
             os.remove("temp.txt")
             os.chdir(current_directory)
             return Quotes
@@ -80,9 +79,10 @@ class CsvIngestor (Ingestor):
         Quotes = []
         try:
             csv_file = pd.read_csv(path)
-            for i in  range(0,len(csv_file.index)):
-                Quotes.append(Quote(csv_file.author[i],csv_file.body[i]))
-                print(Quotes[i].author)
-            return Quotes
+            for i, row in csv_file.iterrows():
+                author = row.iloc[1]
+                body = row.iloc[0]
+                Quotes.append(Quote(author,body))
+                return Quotes
         except:
                 return Quotes
