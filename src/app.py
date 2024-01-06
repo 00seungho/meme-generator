@@ -24,13 +24,14 @@ def setup():
                     './_data/DogQuotes/DogQuotesPDF.pdf',
                     './_data/DogQuotes/DogQuotesCSV.csv']
     
-    # TODO: Ingestor 클래스를 사용하여 의 모든 파일을 구문 분석합니다
+
+    # TODO: Use the Ingestor class to parse all files in the
     # quote_files variable
     quotes = []
     for f in quote_files:
             quotes.extend(Ingestor.parse(f))
     images_path = "./_data/photos/dog/"
-    # TODO: Pythons 표준 라이브러리 os 클래스를 사용하여 모든 것을 찾습니다
+    # TODO: Use the pythons standard library os class to find all
     # images within the images images_path directory
     imgs = []
     for root, dirs, files in os.walk(images_path):
@@ -48,9 +49,9 @@ def meme_rand():
     """ Generate a random meme """
 
     # @TODO:
-    # 랜덤 파이썬 표준 라이브러리 클래스를 사용하여 다음을 수행합니다:
-    # 1. imgs 배열에서 랜덤 이미지 선택
-    # 2. 따옴표 배열에서 임의의 따옴표를 선택합니다
+    # Use the random python standard library class to:
+    # 1. select a random image from imgs array
+    # 2. select a random quote from the quotes array
 
     img = random.choice(imgs)
     quote = random.choice(quotes)
@@ -70,11 +71,11 @@ def meme_post():
     """ Create a user defined meme """
 
     # @TODO:
-    # 1. 요청을 사용하여 image_url에서 이미지를 저장합니다
-    # param을 temp local 파일에 입력합니다.
-    # 2. 밈 개체를 사용하여 이 템플릿을 사용하여 밈을 생성합니다
-    # 파일과 본문 및 작성자 양식 매개변수.
-    # 3. 임시 저장된 이미지를 제거합니다.
+    # 1. Use requests to save the image from the image_url
+    #    form param to a temp local file.
+    # 2. Use the meme object to generate a meme using this temp
+    #    file and the body and author form paramaters.
+    # 3. Remove the temporary saved image.
     image_url = request.form['image_url']
     response = requests.get(image_url)
     if response.status_code == 200:

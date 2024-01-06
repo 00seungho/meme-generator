@@ -49,9 +49,9 @@ if __name__ == "__main__":
     script_directory = script_directory.replace(script_filename, "")
     os.chdir(script_directory)
     parser = argparse.ArgumentParser(description="meme.py")
-    parser.add_argument("-t", "--text", help="write content", required=False,dest="body")
+    parser.add_argument("-p", "--path", help="enter your picture dir", required=False,dest="path")
+    parser.add_argument("-b", "--body", help="write content", required=False,dest="body")
     parser.add_argument("-a", "--author", help="write author", required=False,dest="author")
-    parser.add_argument("-p", "--pic", help="enter your picture dir", required=False,dest="path")
     args = parser.parse_args()
     print(generate_meme(args.path, args.body, args.author))
 
