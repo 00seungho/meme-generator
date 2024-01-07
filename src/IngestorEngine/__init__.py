@@ -112,3 +112,4 @@ class Ingestor():
            return DocxIngestorEngine.parse(path)
         elif file_extension == "csv":
            return CsvIngestorEngine.parse(path)
+    

@@ -6,6 +6,10 @@ import textwrap
 class MemeEngine():
     def __init__(self, path):
         self.path = path
+    def __str__(self):
+        return f"save path{self.path}"
+    def __repr__(self):
+        return f"MemeEngine({self.path})"
     def make_meme(self,img_path,text,author, max_width=500):
         file_name = os.path.basename(img_path)  # 파일명 추출
         file_extension = os.path.splitext(file_name)[1]  # 확장자 추출
@@ -41,3 +45,4 @@ class MemeEngine():
         img.save(save_path)
         
         return save_path
+    

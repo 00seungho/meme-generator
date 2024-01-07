@@ -42,7 +42,7 @@ def setup():
 
 quotes, imgs = setup()
 
-    
+print()
 
 @app.route('/')
 def meme_rand():
@@ -80,7 +80,6 @@ def meme_post():
     response = requests.get(image_url)
     if response.status_code == 200:
         filename = image_url.split('/')[-1] 
-        extension = filename.split('.')[-1]  
         save_path = f"./static/origntemp.jpg"  
         with open(save_path, 'wb') as file:
             file.write(response.content)
